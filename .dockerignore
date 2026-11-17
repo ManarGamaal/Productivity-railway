@@ -1,0 +1,14 @@
+**/bin/
+**/obj/
+**/.vs/
+**/.git/
+.git/
+.gitignore
+.idea/
+*.user
+**/appsettings.Development.json
+**/Properties/launchSettings.json
+Dockerfile
+.dockerignore
+README.md
+scripts/
