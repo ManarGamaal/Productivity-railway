@@ -5,12 +5,11 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Copy only project files first so "dotnet restore" is cached until dependencies change.
-COPY TaskFlow.sln ./
 COPY src/TaskFlow.Domain/TaskFlow.Domain.csproj                   src/TaskFlow.Domain/
 COPY src/TaskFlow.Application/TaskFlow.Application.csproj         src/TaskFlow.Application/
 COPY src/TaskFlow.Infrastructure/TaskFlow.Infrastructure.csproj   src/TaskFlow.Infrastructure/
 COPY src/TaskFlow.API/TaskFlow.API.csproj                         src/TaskFlow.API/
-RUN dotnet restore TaskFlow.sln
+RUN dotnet restore src/TaskFlow.API/TaskFlow.API.csproj
 
 COPY . .
 
